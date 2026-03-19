@@ -14,12 +14,12 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "AMAShareUltralight",
+            name: "AMAShareUltralightBin",
             url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0-rc06.zip",
             checksum: "1e25250fb3ad60eeedad635f5b4c9149b4f127f164816e9624bd6df24905cdff"
         ),
         .target(
-            name: "AMAShareUltralight",
+            name: "AMAShareUltralightBin",
             dependencies: ["AMAShareUltralight"],
             path: "Sources"
         )
