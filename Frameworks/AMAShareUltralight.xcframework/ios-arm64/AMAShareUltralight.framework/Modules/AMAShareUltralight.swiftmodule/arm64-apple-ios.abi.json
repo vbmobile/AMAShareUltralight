@@ -1,9 +1,765 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "NO_MODULE",
-    "printedName": "NO_MODULE",
+    "name": "AMAShareUltralight",
+    "printedName": "AMAShareUltralight",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "UltralightFramework",
+        "printedName": "UltralightFramework",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreBluetooth",
+        "printedName": "CoreBluetooth",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreLocation",
+        "printedName": "CoreLocation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreBluetooth",
+        "printedName": "CoreBluetooth",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AMADocModeliOS",
+        "printedName": "AMADocModeliOS",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "UltralightFramework",
+        "printedName": "UltralightFramework",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "Import",
+        "name": "Combine",
+        "printedName": "Combine",
+        "declKind": "Import",
+        "moduleName": "AMAShareUltralight"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Ultralight",
+        "printedName": "Ultralight",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "listener",
+            "printedName": "listener",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UltralightListenerProtocol",
+                    "printedName": "any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol",
+                    "usr": "s:25mdi_mob_sdk_doc_model_ios26UltralightListenerProtocolP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvp",
+            "mangledName": "$s18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvp",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UltralightListenerProtocol",
+                        "printedName": "any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol",
+                        "usr": "s:25mdi_mob_sdk_doc_model_ios26UltralightListenerProtocolP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvg",
+                "mangledName": "$s18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvg",
+                "moduleName": "AMAShareUltralight",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "(any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol)?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UltralightListenerProtocol",
+                        "printedName": "any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol",
+                        "usr": "s:25mdi_mob_sdk_doc_model_ios26UltralightListenerProtocolP"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvs",
+                "mangledName": "$s18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvs",
+                "moduleName": "AMAShareUltralight",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvM",
+                "mangledName": "$s18AMAShareUltralight0B0C8listener25mdi_mob_sdk_doc_model_ios0B16ListenerProtocol_pSgvM",
+                "moduleName": "AMAShareUltralight",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "isBeamsyncActive",
+            "printedName": "isBeamsyncActive()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C16isBeamsyncActiveSbyF",
+            "mangledName": "$s18AMAShareUltralight0B0C16isBeamsyncActiveSbyF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "initialise",
+            "printedName": "initialise(apiKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C10initialise6apiKeyySS_tF",
+            "mangledName": "$s18AMAShareUltralight0B0C10initialise6apiKeyySS_tF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Ultralight",
+                "printedName": "AMAShareUltralight.Ultralight",
+                "usr": "s:18AMAShareUltralight0B0C"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:18AMAShareUltralight0B0CACycfc",
+            "mangledName": "$s18AMAShareUltralight0B0CACycfc",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "softStart",
+            "printedName": "softStart()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Result",
+                "printedName": "Swift.Result<Swift.Bool, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:s6ResultO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C9softStarts6ResultOySbs5Error_pGyYaF",
+            "mangledName": "$s18AMAShareUltralight0B0C9softStarts6ResultOySbs5Error_pGyYaF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDeviceId",
+            "printedName": "setDeviceId(deviceId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C11setDeviceId06deviceE0ySS_tF",
+            "mangledName": "$s18AMAShareUltralight0B0C11setDeviceId06deviceE0ySS_tF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendMessage",
+            "printedName": "sendMessage(touchpointId:message:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C11sendMessage12touchpointId7messageySS_SStF",
+            "mangledName": "$s18AMAShareUltralight0B0C11sendMessage12touchpointId7messageySS_SStF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setPassengers",
+            "printedName": "setPassengers(idDocuments:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[mdi_mob_sdk_doc_model_ios.IdDocument]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "IdDocument",
+                    "printedName": "mdi_mob_sdk_doc_model_ios.IdDocument",
+                    "usr": "s:25mdi_mob_sdk_doc_model_ios10IdDocumentC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C13setPassengers11idDocumentsySay25mdi_mob_sdk_doc_model_ios10IdDocumentCG_tKF",
+            "mangledName": "$s18AMAShareUltralight0B0C13setPassengers11idDocumentsySay25mdi_mob_sdk_doc_model_ios10IdDocumentCG_tKF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setPassengers",
+            "printedName": "setPassengers(passengers:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[mdi_mob_sdk_doc_model_ios.Passenger]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Passenger",
+                    "printedName": "mdi_mob_sdk_doc_model_ios.Passenger",
+                    "usr": "s:25mdi_mob_sdk_doc_model_ios9PassengerV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C13setPassengers10passengersySay25mdi_mob_sdk_doc_model_ios9PassengerVG_tKF",
+            "mangledName": "$s18AMAShareUltralight0B0C13setPassengers10passengersySay25mdi_mob_sdk_doc_model_ios9PassengerVG_tKF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getPassengers",
+            "printedName": "getPassengers()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[mdi_mob_sdk_doc_model_ios.Passenger]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Passenger",
+                    "printedName": "mdi_mob_sdk_doc_model_ios.Passenger",
+                    "usr": "s:25mdi_mob_sdk_doc_model_ios9PassengerV"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C13getPassengersSay25mdi_mob_sdk_doc_model_ios9PassengerVGyF",
+            "mangledName": "$s18AMAShareUltralight0B0C13getPassengersSay25mdi_mob_sdk_doc_model_ios9PassengerVGyF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "startBeamsync",
+            "printedName": "startBeamsync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C13startBeamsyncSSyF",
+            "mangledName": "$s18AMAShareUltralight0B0C13startBeamsyncSSyF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopBeamsync",
+            "printedName": "stopBeamsync()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C12stopBeamsyncyyF",
+            "mangledName": "$s18AMAShareUltralight0B0C12stopBeamsyncyyF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getProviderVersion",
+            "printedName": "getProviderVersion()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProviderVersion",
+                "printedName": "mdi_mob_sdk_doc_model_ios.ProviderVersion",
+                "usr": "s:25mdi_mob_sdk_doc_model_ios15ProviderVersionC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C18getProviderVersion25mdi_mob_sdk_doc_model_ios0dE0CyF",
+            "mangledName": "$s18AMAShareUltralight0B0C18getProviderVersion25mdi_mob_sdk_doc_model_ios0dE0CyF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "eventReceived",
+            "printedName": "eventReceived(event:payload:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C13eventReceived0C07payloadySS_SStF",
+            "mangledName": "$s18AMAShareUltralight0B0C13eventReceived0C07payloadySS_SStF",
+            "moduleName": "AMAShareUltralight",
+            "objc_name": "eventReceivedWithEvent:payload:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "sendTypes",
+            "printedName": "sendTypes(types:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:18AMAShareUltralight0B0C9sendTypes5typesySS_tF",
+            "mangledName": "$s18AMAShareUltralight0B0C9sendTypes5typesySS_tF",
+            "moduleName": "AMAShareUltralight",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:18AMAShareUltralight0B0C",
+        "mangledName": "$s18AMAShareUltralight0B0C",
+        "moduleName": "AMAShareUltralight",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UltralightProtocol",
+            "printedName": "UltralightProtocol",
+            "usr": "s:25mdi_mob_sdk_doc_model_ios18UltralightProtocolP",
+            "mangledName": "$s25mdi_mob_sdk_doc_model_ios18UltralightProtocolP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "UltralightListener",
+            "printedName": "UltralightListener",
+            "usr": "c:@M@UltralightFramework@objc(pl)UltralightListener",
+            "mangledName": "$s19UltralightFramework0A8ListenerP"
+          }
+        ]
+      }
+    ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/build\/DerivedData-device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AMAShareUltralight\/IntermediateBuildFilesPath\/AMAShareUltralight.build\/Release-iphoneos\/AMAShareUltralight.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 295,
+      "length": 39,
+      "value": "\"AMAShareUltralight_AMAShareUltralight\""
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/build\/DerivedData-device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AMAShareUltralight\/IntermediateBuildFilesPath\/AMAShareUltralight.build\/Release-iphoneos\/AMAShareUltralight.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "Array",
+      "offset": 981,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/build\/DerivedData-device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AMAShareUltralight\/IntermediateBuildFilesPath\/AMAShareUltralight.build\/Release-iphoneos\/AMAShareUltralight.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1508,
+      "length": 9,
+      "value": "\".bundle\""
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/build\/DerivedData-device\/Build\/Intermediates.noindex\/ArchiveIntermediates\/AMAShareUltralight\/IntermediateBuildFilesPath\/AMAShareUltralight.build\/Release-iphoneos\/AMAShareUltralight.build\/DerivedSources\/resource_bundle_accessor.swift",
+      "kind": "StringLiteral",
+      "offset": 1660,
+      "length": 67,
+      "value": "\"unable to find bundle named AMAShareUltralight_AMAShareUltralight\""
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/AMAShareUltralight\/Sources\/AMAShareUltralight\/Internal\/BluetoothListener.swift",
+      "kind": "Array",
+      "offset": 665,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/AMAShareUltralight\/Sources\/AMAShareUltralight\/Internal\/PointFree.swift",
+      "kind": "StringLiteral",
+      "offset": 197,
+      "length": 3,
+      "value": "\" \""
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/AMAShareUltralight\/Sources\/AMAShareUltralight\/Internal\/PointFree.swift",
+      "kind": "StringLiteral",
+      "offset": 227,
+      "length": 4,
+      "value": "\"\n\""
+    },
+    {
+      "filePath": "\/Users\/rdossantos\/Desktop\/GitLab\/UltraLight\/mdi-mob-lib-share-ultralight\/AMAShareUltralight\/Sources\/AMAShareUltralight\/Public\/Ultralight.swift",
+      "kind": "Array",
+      "offset": 412,
+      "length": 2,
+      "value": "[]"
+    }
+  ]
 }
