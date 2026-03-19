@@ -2,25 +2,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "AmaShareUltralight",
+    name: "AMAShareUltralight",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .library(
-            name: "AmaShareUltralight",
-            targets: ["AmaShareUltralight"]
+            name: "AMAShareUltralight",
+            targets: ["AMAShareUltralight"]
         )
     ],
     targets: [
         .binaryTarget(
-            name: "AmaShareUltralightBin",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AmaShareUltralight/AmaShareUltralight-1.0.0-rc01.zip",
-            checksum: "7d501bda28e855d4fa8a6e6d55cbce2c5bb633bb776a69d473b335987e302f36"
+            name: "AMAShareUltralightBin",
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0-rc05.zip",
+            checksum: "1fb07c79d1fadf8d052927260a56e6d1fb34e9c0e2dc1ff2edb0e823782a2046"
         ),
         .target(
-            name: "AmaShareUltralight",
-            dependencies: ["AmaShareUltralightBin"],
+            name: "AMAShareUltralight",
+            dependencies: ["AMAShareUltralightBin"],
             path: "Sources"
         )
     ]
