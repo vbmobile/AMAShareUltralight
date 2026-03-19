@@ -1,8 +1,8 @@
-// swift-tools-version: 6.2
 import PackageDescription
 
 let package = Package(
     name: "AMAShareUltralight",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v15)
     ],
@@ -20,8 +20,11 @@ let package = Package(
         ),
         .target(
             name: "AMAShareUltralight",
-            dependencies: ["AMAShareUltralightBin"],
+            dependencies: [
+                .target(name: "AMAShareUltralightBin")
+            ],
             path: "Sources"
         )
     ]
 )
+
