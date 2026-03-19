@@ -19,7 +19,7 @@ let package = Package(
             checksum: "721be7c6762ed45c25907faa786764c27529f0a15476dece5099ffbf654ba2d6"
         ),*/
         .binaryTarget(
-            name: "AMADocModeliOS",
+            name: "mdi_mob_sdk_doc_model_ios",
             path: "Frameworks/mdi-mob-sdk-doc-model-ios.xcframework"
         ),
         .binaryTarget(
@@ -34,7 +34,7 @@ let package = Package(
             name: "AMAShareUltralight",
             dependencies: [
                 "AMAShareUltralightBin",
-                "AMADocModeliOS",
+                "mdi_mob_sdk_doc_model_ios",
                 "UltralightFramework"
             ],
             path: "Sources/AMAShareUltralight"
