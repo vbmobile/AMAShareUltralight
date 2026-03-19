@@ -1,1 +1,1 @@
-@_exported import mdi_mob_ultraligh
+@_exported import AMAShareUltralight
