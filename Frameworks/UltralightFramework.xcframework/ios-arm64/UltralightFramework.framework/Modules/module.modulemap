@@ -1,0 +1,6 @@
+framework module UltralightFramework {
+  umbrella header "UltralightFramework.h"
+  export *
+
+  module * { export * }
+}

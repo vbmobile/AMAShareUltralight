@@ -1,0 +1,598 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name UltralightFramework
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import CoreBluetooth
+import CoreLocation
+import Foundation
+import Swift
+@_exported import UltralightFramework
+import UserNotifications
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public enum LogLevel : Swift.Int {
+  case error
+  case warning
+  case info
+  case debug
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol Logger {
+  func log(logLevel: UltralightFramework.LogLevel, message: @autoclosure () -> Swift.String)
+}
+extension UltralightFramework.LogLevel {
+  public func toString() -> Swift.String
+}
+public class PrintLogger : UltralightFramework.Logger {
+  public init()
+  public func log(logLevel: UltralightFramework.LogLevel, message: @autoclosure () -> Swift.String)
+  @objc deinit
+}
+public class NullLogger : UltralightFramework.Logger {
+  public init()
+  public func log(logLevel: UltralightFramework.LogLevel, message: @autoclosure () -> Swift.String)
+  @objc deinit
+}
+public protocol TransportDelegate : AnyObject {
+  func transportDidOpen()
+  func transportDidReceiveData(_ data: Foundation.Data)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func transportDidClose(_ error: (any Swift.Error)?)
+  #endif
+}
+public class HubConnectionOptions {
+  public var keepAliveInterval: Swift.Double?
+  public var callbackQueue: Dispatch.DispatchQueue
+  public init()
+  @objc deinit
+}
+public struct TransportType : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let longPolling: UltralightFramework.TransportType
+  public static let webSockets: UltralightFramework.TransportType
+  public static let all: UltralightFramework.TransportType
+  public typealias ArrayLiteralElement = UltralightFramework.TransportType
+  public typealias Element = UltralightFramework.TransportType
+  public typealias RawValue = Swift.Int
+}
+public protocol HubConnectionDelegate : AnyObject {
+  func connectionDidOpen(hubConnection: UltralightFramework.HubConnection)
+  func connectionDidFailToOpen(error: any Swift.Error)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func connectionDidClose(error: (any Swift.Error)?)
+  #endif
+  func connectionWillReconnect(error: any Swift.Error)
+  func connectionDidReconnect()
+}
+extension UltralightFramework.HubConnectionDelegate {
+  public func connectionWillReconnect(error: any Swift.Error)
+  public func connectionDidReconnect()
+}
+@_hasMissingDesignatedInitializers public class LongPollingTransport : UltralightFramework.Transport {
+  public var delegate: (any UltralightFramework.TransportDelegate)?
+  final public let inherentKeepAlive: Swift.Bool
+  public func start(url: Foundation.URL, options: UltralightFramework.HttpConnectionOptions)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send(data: Foundation.Data, sendDidComplete: @escaping ((any Swift.Error)?) -> Swift.Void)
+  #endif
+  public func close()
+  @objc deinit
+}
+public struct RetryContext {
+  public let failedAttemptsCount: Swift.Int
+  public let reconnectStartTime: Foundation.Date
+  public let error: any Swift.Error
+}
+public protocol ReconnectPolicy {
+  func nextAttemptInterval(retryContext: UltralightFramework.RetryContext) -> Dispatch.DispatchTimeInterval
+}
+public class DefaultReconnectPolicy : UltralightFramework.ReconnectPolicy {
+  public init(retryIntervals: [Dispatch.DispatchTimeInterval] = [.milliseconds(0), .seconds(2), .seconds(10), .seconds(30)])
+  public func nextAttemptInterval(retryContext: UltralightFramework.RetryContext) -> Dispatch.DispatchTimeInterval
+  @objc deinit
+}
+public class HttpConnectionOptions {
+  public var headers: [Swift.String : Swift.String]
+  public var accessTokenProvider: () -> Swift.String?
+  public var httpClientFactory: (UltralightFramework.HttpConnectionOptions) -> any UltralightFramework.HttpClientProtocol
+  public var skipNegotiation: Swift.Bool {
+    get
+    @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+    set
+  }
+  public var requestTimeout: Swift.Double
+  public var authenticationChallengeHandler: ((_ session: Foundation.URLSession, _ challenge: Foundation.URLAuthenticationChallenge, _ completionHandler: @escaping (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void) -> Swift.Void)?
+  public var callbackQueue: Dispatch.DispatchQueue
+  public init()
+  @objc deinit
+}
+public class HubConnectionBuilder {
+  public init(url: Foundation.URL)
+  public func withHubProtocol(hubProtocolFactory: @escaping (any UltralightFramework.Logger) -> any UltralightFramework.HubProtocol) -> UltralightFramework.HubConnectionBuilder
+  public func withHttpConnectionOptions(configureHttpOptions: (_ httpConnectionOptions: UltralightFramework.HttpConnectionOptions) -> Swift.Void) -> UltralightFramework.HubConnectionBuilder
+  public func withHubConnectionOptions(configureHubConnectionOptions: (_ hubConnectionOptions: UltralightFramework.HubConnectionOptions) -> Swift.Void) -> UltralightFramework.HubConnectionBuilder
+  public func withLogging(minLogLevel: UltralightFramework.LogLevel) -> UltralightFramework.HubConnectionBuilder
+  public func withLogging(logger: any UltralightFramework.Logger) -> UltralightFramework.HubConnectionBuilder
+  public func withLogging(minLogLevel: UltralightFramework.LogLevel, logger: any UltralightFramework.Logger) -> UltralightFramework.HubConnectionBuilder
+  public func withHubConnectionDelegate(delegate: any UltralightFramework.HubConnectionDelegate) -> UltralightFramework.HubConnectionBuilder
+  public func withAutoReconnect(reconnectPolicy: any UltralightFramework.ReconnectPolicy = DefaultReconnectPolicy()) -> UltralightFramework.HubConnectionBuilder
+  public func withPermittedTransportTypes(_ permittedTransportTypes: UltralightFramework.TransportType) -> UltralightFramework.HubConnectionBuilder
+  public func build() -> UltralightFramework.HubConnection
+  @objc deinit
+}
+extension UltralightFramework.HubConnectionBuilder {
+  public func withJSONHubProtocol() -> UltralightFramework.HubConnectionBuilder
+}
+public protocol Connection {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var delegate: (any UltralightFramework.ConnectionDelegate)? { get set }
+  #endif
+  var inherentKeepAlive: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
+  var connectionId: Swift.String? { get }
+  #endif
+  func start()
+  #if compiler(>=5.3) && $NonescapableTypes
+  func send(data: Foundation.Data, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func stop(stopError: (any Swift.Error)?)
+  #endif
+}
+@objc public protocol UltralightListener {
+  @objc func eventReceived(event: Swift.String, payload: Swift.String)
+}
+@objc @_inheritsConvenienceInitializers public class Ultralight : ObjectiveC.NSObject, CoreLocation.CLLocationManagerDelegate, CoreBluetooth.CBCentralManagerDelegate, CoreBluetooth.CBPeripheralDelegate, @unchecked Swift.Sendable {
+  weak public var delegate: (any UltralightFramework.UltralightListener)?
+  public func setDeviceId(deviceId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func initialiseBeamsync(apiKey: Swift.String, completion: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
+  #endif
+  public func setPassengers(_ passengers: [UltralightFramework.Passenger]) throws
+  public func getPassengers() -> [UltralightFramework.Passenger]
+  public func startBeamsync() -> Swift.String
+  public func sendMessage(touchpointId: Swift.String, message: Swift.String)
+  public func stopBeamsync()
+  @objc public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  public func getHistory() -> Swift.String
+  public func clearHistory()
+  @objc public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  public func isBeamsyncActive() -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol ConnectionDelegate : AnyObject {
+  func connectionDidOpen(connection: any UltralightFramework.Connection)
+  func connectionDidFailToOpen(error: any Swift.Error)
+  func connectionDidReceiveData(connection: any UltralightFramework.Connection, data: Foundation.Data)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func connectionDidClose(error: (any Swift.Error)?)
+  #endif
+  func connectionWillReconnect(error: any Swift.Error)
+  func connectionDidReconnect()
+}
+extension UltralightFramework.ConnectionDelegate {
+  public func connectionWillReconnect(error: any Swift.Error)
+  public func connectionDidReconnect()
+}
+@objc @_hasMissingDesignatedInitializers @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+public class WebsocketsTransport : ObjectiveC.NSObject, UltralightFramework.Transport, Foundation.URLSessionWebSocketDelegate {
+  public var delegate: (any UltralightFramework.TransportDelegate)?
+  final public let inherentKeepAlive: Swift.Bool
+  public func start(url: Foundation.URL, options: UltralightFramework.HttpConnectionOptions)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send(data: Foundation.Data, sendDidComplete: @escaping ((any Swift.Error)?) -> Swift.Void)
+  #endif
+  public func close()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func urlSession(_ session: Foundation.URLSession, webSocketTask: Foundation.URLSessionWebSocketTask, didOpenWithProtocol protocol: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func urlSession(_ session: Foundation.URLSession, task: Foundation.URLSessionTask, didCompleteWithError error: (any Swift.Error)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func urlSession(_ session: Foundation.URLSession, webSocketTask: Foundation.URLSessionWebSocketTask, didCloseWith closeCode: Foundation.URLSessionWebSocketTask.CloseCode, reason: Foundation.Data?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func urlSession(_ session: Foundation.URLSession, didReceive challenge: Foundation.URLAuthenticationChallenge, completionHandler: @escaping @Sendable (Foundation.URLSession.AuthChallengeDisposition, Foundation.URLCredential?) -> Swift.Void)
+  #endif
+  @objc deinit
+}
+public class JSONHubProtocol : UltralightFramework.HubProtocol {
+  final public let name: Swift.String
+  final public let version: Swift.Int
+  final public let type: UltralightFramework.ProtocolType
+  public init(logger: any UltralightFramework.Logger, encoder: Foundation.JSONEncoder = JSONEncoder(), decoder: Foundation.JSONDecoder = JSONDecoder())
+  public func parseMessages(input: Foundation.Data) throws -> [any UltralightFramework.HubMessage]
+  public func createHubMessage(payload: Foundation.Data) throws -> any UltralightFramework.HubMessage
+  public func writeMessage(message: any UltralightFramework.HubMessage) throws -> Foundation.Data
+  @objc deinit
+}
+public protocol HttpClientProtocol {
+  #if compiler(>=5.3) && $NonescapableTypes
+  func get(url: Foundation.URL, completionHandler: @escaping (UltralightFramework.HttpResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func post(url: Foundation.URL, body: Foundation.Data?, completionHandler: @escaping (UltralightFramework.HttpResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  func delete(url: Foundation.URL, completionHandler: @escaping (UltralightFramework.HttpResponse?, (any Swift.Error)?) -> Swift.Void)
+  #endif
+}
+@_hasMissingDesignatedInitializers public class Passenger : Swift.Codable {
+  public var paxId: Swift.String?
+  public var language: Swift.String?
+  public var mrz: Swift.String?
+  public var boardingPasses: [Swift.String]
+  public var docPhotoBase64: Swift.String?
+  public var selfieBase64: Swift.String?
+  public var ePassport: Swift.Bool?
+  public var ebagtagId: Swift.String?
+  public var tag: Swift.String?
+  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(language: Swift.String?, mrz: Swift.String?, boardingPasses: [Swift.String], docPhotoBase64: Swift.String?, selfieBase64: Swift.String?, ePassport: Swift.Bool?, ebagtagId: Swift.String?, tag: Swift.String?)
+  #endif
+  @objc deinit
+}
+public protocol Transport : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  var delegate: (any UltralightFramework.TransportDelegate)? { get set }
+  #endif
+  var inherentKeepAlive: Swift.Bool { get }
+  func start(url: Foundation.URL, options: UltralightFramework.HttpConnectionOptions)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func send(data: Foundation.Data, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  func close()
+}
+public enum ProtocolType : Swift.Int {
+  case Text
+  case Binary
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol HubProtocol {
+  var name: Swift.String { get }
+  var version: Swift.Int { get }
+  var type: UltralightFramework.ProtocolType { get }
+  func parseMessages(input: Foundation.Data) throws -> [any UltralightFramework.HubMessage]
+  func writeMessage(message: any UltralightFramework.HubMessage) throws -> Foundation.Data
+}
+public enum MessageType : Swift.Int, Swift.Codable {
+  case Invocation
+  case StreamItem
+  case Completion
+  case StreamInvocation
+  case CancelInvocation
+  case Ping
+  case Close
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol HubMessage {
+  var type: UltralightFramework.MessageType { get }
+}
+@_hasMissingDesignatedInitializers public class ServerInvocationMessage : UltralightFramework.HubMessage, Swift.Encodable {
+  final public let type: UltralightFramework.MessageType
+  final public let invocationId: Swift.String?
+  final public let target: Swift.String
+  final public let arguments: [any Swift.Encodable]
+  final public let streamIds: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class ClientInvocationMessage : UltralightFramework.HubMessage, Swift.Decodable {
+  final public let type: UltralightFramework.MessageType
+  final public let target: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  public func getArgument<T>(type: T.Type) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+public class StreamItemMessage : UltralightFramework.HubMessage, Swift.Codable {
+  final public let type: UltralightFramework.MessageType
+  final public let invocationId: Swift.String
+  required public init(from decoder: any Swift.Decoder) throws
+  public init(invocationId: Swift.String, item: any Swift.Encodable)
+  public func getItem<T>(_ type: T.Type) throws -> T where T : Swift.Decodable
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+public class CompletionMessage : UltralightFramework.HubMessage, Swift.Codable {
+  final public let type: UltralightFramework.MessageType
+  final public let invocationId: Swift.String
+  final public let error: Swift.String?
+  final public let hasResult: Swift.Bool
+  required public init(from decoder: any Swift.Decoder) throws
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(invocationId: Swift.String, error: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func getResult<T>(_ type: T.Type) throws -> T? where T : Swift.Decodable
+  #endif
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class StreamInvocationMessage : UltralightFramework.HubMessage, Swift.Encodable {
+  final public let type: UltralightFramework.MessageType
+  final public let invocationId: Swift.String
+  final public let target: Swift.String
+  final public let arguments: [any Swift.Encodable]
+  final public let streamIds: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class CancelInvocationMessage : UltralightFramework.HubMessage, Swift.Encodable {
+  final public let type: UltralightFramework.MessageType
+  final public let invocationId: Swift.String
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class PingMessage : UltralightFramework.HubMessage, Swift.Encodable {
+  final public let type: UltralightFramework.MessageType
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class CloseMessage : UltralightFramework.HubMessage, Swift.Decodable {
+  public var type: UltralightFramework.MessageType {
+    get
+  }
+  final public let error: Swift.String?
+  @objc deinit
+  required public init(from decoder: any Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class HttpConnection : UltralightFramework.Connection {
+  weak public var delegate: (any UltralightFramework.ConnectionDelegate)?
+  public var connectionId: Swift.String? {
+    get
+  }
+  public var inherentKeepAlive: Swift.Bool {
+    get
+  }
+  convenience public init(url: Foundation.URL, options: UltralightFramework.HttpConnectionOptions = HttpConnectionOptions(), logger: any UltralightFramework.Logger = NullLogger())
+  @objc deinit
+  public func start()
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send(data: Foundation.Data, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stop(stopError: (any Swift.Error)? = nil)
+  #endif
+}
+@_hasMissingDesignatedInitializers public class ConnectionTransportDelegate : UltralightFramework.TransportDelegate {
+  public func transportDidOpen()
+  public func transportDidReceiveData(_ data: Foundation.Data)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func transportDidClose(_ error: (any Swift.Error)?)
+  #endif
+  @objc deinit
+}
+public class HttpResponse {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(statusCode: Swift.Int, contents: Foundation.Data?)
+  #endif
+  @objc deinit
+}
+public class HubConnection {
+  weak public var delegate: (any UltralightFramework.HubConnectionDelegate)?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var connectionId: Swift.String? {
+    get
+  }
+  #endif
+  convenience public init(connection: any UltralightFramework.Connection, hubProtocol: any UltralightFramework.HubProtocol, logger: any UltralightFramework.Logger = NullLogger())
+  public init(connection: any UltralightFramework.Connection, hubProtocol: any UltralightFramework.HubProtocol, hubConnectionOptions: UltralightFramework.HubConnectionOptions, logger: any UltralightFramework.Logger = NullLogger())
+  @objc deinit
+  public func start()
+  public func stop()
+  public func on(method: Swift.String, callback: @escaping (_ argumentExtractor: UltralightFramework.ArgumentExtractor) throws -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send(method: Swift.String, arguments: [any Swift.Encodable], sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke(method: Swift.String, arguments: [any Swift.Encodable], invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T>(method: Swift.String, arguments: [any Swift.Encodable], resultType: T.Type, invocationDidComplete: @escaping (_ result: T?, _ error: (any Swift.Error)?) -> Swift.Void) where T : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T>(method: Swift.String, arguments: [any Swift.Encodable], streamItemReceived: @escaping (_ item: T) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T : Swift.Decodable
+  #endif
+  public func cancelStreamInvocation(streamHandle: UltralightFramework.StreamHandle, cancelDidFail: @escaping (_ error: any Swift.Error) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers public class ArgumentExtractor {
+  public func getArgument<T>(type: T.Type) throws -> T where T : Swift.Decodable
+  public func hasMoreArgs() -> Swift.Bool
+  @objc deinit
+}
+extension UltralightFramework.HubConnection {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke(method: Swift.String, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1>(method: Swift.String, _ arg1: T1, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2>(method: Swift.String, _ arg1: T1, _ arg2: T2, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6, T7>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6, T7, T8>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, _ arg8: T8, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, T8 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<TRes>(method: Swift.String, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, TRes>(method: Swift.String, _ arg1: T1, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6, T7, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func invoke<T1, T2, T3, T4, T5, T6, T7, T8, TRes>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, _ arg8: T8, resultType: TRes.Type, invocationDidComplete: @escaping (_ result: TRes?, _ error: (any Swift.Error)?) -> Swift.Void) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, T8 : Swift.Encodable, TRes : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send(method: Swift.String, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in})
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1>(method: Swift.String, _ arg1: T1, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2>(method: Swift.String, _ arg1: T1, _ arg2: T2, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3, T4>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3, T4, T5>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3, T4, T5, T6>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3, T4, T5, T6, T7>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func send<T1, T2, T3, T4, T5, T6, T7, T8>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, _ arg8: T8, sendDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void = {_ in}) where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, T8 : Swift.Encodable
+  #endif
+  public func on(method: Swift.String, callback: @escaping () -> Swift.Void)
+  public func on<T1>(method: Swift.String, callback: @escaping (_ arg1: T1) -> Swift.Void) where T1 : Swift.Decodable
+  public func on<T1, T2>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable
+  public func on<T1, T2, T3>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable
+  public func on<T1, T2, T3, T4>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable, T4 : Swift.Decodable
+  public func on<T1, T2, T3, T4, T5>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable, T4 : Swift.Decodable, T5 : Swift.Decodable
+  public func on<T1, T2, T3, T4, T5, T6>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable, T4 : Swift.Decodable, T5 : Swift.Decodable, T6 : Swift.Decodable
+  public func on<T1, T2, T3, T4, T5, T6, T7>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable, T4 : Swift.Decodable, T5 : Swift.Decodable, T6 : Swift.Decodable, T7 : Swift.Decodable
+  public func on<T1, T2, T3, T4, T5, T6, T7, T8>(method: Swift.String, callback: @escaping (_ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, _ arg8: T8) -> Swift.Void) where T1 : Swift.Decodable, T2 : Swift.Decodable, T3 : Swift.Decodable, T4 : Swift.Decodable, T5 : Swift.Decodable, T6 : Swift.Decodable, T7 : Swift.Decodable, T8 : Swift.Decodable
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<TItemType>(method: Swift.String, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, TItemType>(method: Swift.String, _ arg1: T1, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, T4, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, T4, T5, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, T4, T5, T6, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, T4, T5, T6, T7, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func stream<T1, T2, T3, T4, T5, T6, T7, T8, TItemType>(method: Swift.String, _ arg1: T1, _ arg2: T2, _ arg3: T3, _ arg4: T4, _ arg5: T5, _ arg6: T6, _ arg7: T7, _ arg8: T8, streamItemReceived: @escaping (_ item: TItemType) -> Swift.Void, invocationDidComplete: @escaping (_ error: (any Swift.Error)?) -> Swift.Void) -> UltralightFramework.StreamHandle where T1 : Swift.Encodable, T2 : Swift.Encodable, T3 : Swift.Encodable, T4 : Swift.Encodable, T5 : Swift.Encodable, T6 : Swift.Encodable, T7 : Swift.Encodable, T8 : Swift.Encodable, TItemType : Swift.Decodable
+  #endif
+}
+public class BeamsyncHistory : Swift.Codable {
+  public var time: Swift.String
+  public var type: Swift.String
+  public var success: Swift.Bool
+  public init(time: Swift.String, type: Swift.String, success: Swift.Bool)
+  @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+  required public init(from decoder: any Swift.Decoder) throws
+}
+public enum SignalRError : Swift.Error {
+  case invalidState
+  case webError(statusCode: Swift.Int)
+  case hubInvocationError(message: Swift.String)
+  case hubInvocationCancelled
+  case unknownMessageType
+  case invalidMessage
+  case unsupportedType
+  case serializationError(underlyingError: any Swift.Error)
+  case connectionIsBeingClosed
+  case invalidOperation(message: Swift.String)
+  case protocolViolation(underlyingError: any Swift.Error)
+  case handshakeError(message: Swift.String)
+  case invalidNegotiationResponse(message: Swift.String)
+  case serverClose(message: Swift.String?)
+  case noSupportedTransportAvailable
+  case connectionIsReconnecting
+}
+public enum TransferFormat : Swift.String {
+  case text
+  case binary
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class StreamHandle {
+  @objc deinit
+}
+extension UltralightFramework.LogLevel : Swift.Equatable {}
+extension UltralightFramework.LogLevel : Swift.Hashable {}
+extension UltralightFramework.LogLevel : Swift.RawRepresentable {}
+extension UltralightFramework.ProtocolType : Swift.Equatable {}
+extension UltralightFramework.ProtocolType : Swift.Hashable {}
+extension UltralightFramework.ProtocolType : Swift.RawRepresentable {}
+extension UltralightFramework.MessageType : Swift.Equatable {}
+extension UltralightFramework.MessageType : Swift.Hashable {}
+extension UltralightFramework.MessageType : Swift.RawRepresentable {}
+extension UltralightFramework.TransferFormat : Swift.Equatable {}
+extension UltralightFramework.TransferFormat : Swift.Hashable {}
+extension UltralightFramework.TransferFormat : Swift.RawRepresentable {}
