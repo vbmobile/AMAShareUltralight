@@ -1,0 +1,46 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name AMAShareUltralight -package-name amashareultralight
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import AMADocModeliOS
+import AVFoundation
+import Combine
+import CoreBluetooth
+import CoreLocation
+import Foundation
+import Foundation/*.Bundle*/
+import Foundation/*.ProcessInfo*/
+import Foundation/*.URL*/
+import Swift
+import SwiftUI
+import UIKit
+import UltralightFramework
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public class Ultralight : mdi_mob_sdk_doc_model_ios.UltralightProtocol {
+  @_hasInitialValue private var ultralight: UltralightFramework.Ultralight?
+  @_hasInitialValue private var bluetoothListener: AMAShareUltralight.BluetoothListener?
+  @_hasInitialValue private var apiKey: Swift.String?
+  @_hasInitialValue private var cancelBag: Swift.Set<Combine.AnyCancellable>
+  @_hasInitialValue public var listener: (any mdi_mob_sdk_doc_model_ios.UltralightListenerProtocol)?
+  public func isBeamsyncActive() -> Swift.Bool
+  @objc deinit
+  public func initialise(apiKey: Swift.String)
+  public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func softStart() async -> Swift.Result<Swift.Bool, any Swift.Error>
+  #endif
+  public func setDeviceId(deviceId: Swift.String)
+  public func sendMessage(touchpointId: Swift.String, message: Swift.String)
+  public func setPassengers(idDocuments: [mdi_mob_sdk_doc_model_ios.IdDocument]) throws
+  public func setPassengers(passengers: [mdi_mob_sdk_doc_model_ios.Passenger]) throws
+  public func getPassengers() -> [mdi_mob_sdk_doc_model_ios.Passenger]
+  public func startBeamsync() -> Swift.String
+  public func stopBeamsync()
+  public func getProviderVersion() -> mdi_mob_sdk_doc_model_ios.ProviderVersion
+}
+extension AMAShareUltralight.Ultralight : UltralightFramework.UltralightListener {
+  @objc dynamic public func eventReceived(event: Swift.String, payload: Swift.String)
+  public func sendTypes(types: Swift.String)
+}
