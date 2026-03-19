@@ -1,1 +1,1 @@
-@_exported import AMAShareUltralightBin
+@_exported import mdi_mob_ultraligh
