@@ -1,2 +1,4 @@
 framework module AMAShareUltralight {
+  link framework "DocModeliOS"
+  link framework "UltralightFramework"
 }
