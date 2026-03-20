@@ -1,0 +1,32 @@
+{
+  "originHash" : "e3011a3d866298cbe44d02655dfbbb667d957f50e179a9616c58039009363c8c",
+  "pins" : [
+    {
+      "identity" : "amadocmodelios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vbmobile/AMADocModeliOS",
+      "state" : {
+        "branch" : "main",
+        "revision" : "1e1bc03f50bb91e13bcb3120e4dd1cf7c5f658a6"
+      }
+    },
+    {
+      "identity" : "amashareultralight",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vbmobile/AmaShareUltralight",
+      "state" : {
+        "revision" : "fc2129dcd5e38987f756f85aad1a79980b36e4c0"
+      }
+    },
+    {
+      "identity" : "ultralight-native-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vbmobile/ultralight-native-sdk",
+      "state" : {
+        "revision" : "f053a1767fc392fa1613b7ae78fc9218b5f90a79",
+        "version" : "2.6.141"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,14 @@
+//
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+//
+
+#include "./base.xcconfig"
+#include "./pods-debug.xcconfig"
+
+TARGET_ENVIRONMENT = dev
+
+CODE_SIGN_IDENTITY = Apple Development
+CODE_SIGN_ENTITLEMENTS = Entitlements/DemoApp Debug.entitlements
+PRODUCT_BUNDLE_IDENTIFIER = com.amadeus.mdi.dvc.ui.sdk.internal
+PROVISIONING_PROFILE_SPECIFIER = match Development com.amadeus.mdi.dvc.ui.sdk.internal
