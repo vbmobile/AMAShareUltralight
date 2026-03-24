@@ -4,7 +4,7 @@
 //
 
 import SwiftUI
-import mdi_mob_sdk_doc_model_ios
+import AMADocModeliOS
 //import AMADocModeliOS
 
 struct PassengersView: View {
