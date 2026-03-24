@@ -23,7 +23,7 @@ let package = Package(
     products: [
         .library(
             name: "AMAShareUltralight",
-            targets: ["AMAShareUltralight"]
+            targets: ["AMAShareUltralightBinary"]
         )
     ],
     dependencies: [
@@ -32,14 +32,14 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "AMAShareUltralightBinary",
+            name: "AMAShareUltralight",
             path: "Frameworks/AMAShareUltralight.xcframework"
         ),
         // ✅ Swift wrapper target that pulls remote deps + exposes the binary
         .target(
-            name: "AMAShareUltralight",
+            name: "AMAShareUltralightBinary",
             dependencies: [
-                "AMAShareUltralightBinary",
+                "AMAShareUltralight",
                 .product(name: models.product, package: models.package),
                 .product(name: ultralight.product, package: ultralight.package)
             ],
