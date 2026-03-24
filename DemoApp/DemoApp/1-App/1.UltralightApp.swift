@@ -7,7 +7,7 @@
 
 import SwiftUI
 import AMAShareUltralight
-import mdi_mob_sdk_doc_model_ios
+import AMADocModeliOS
 
 @main
 struct UltralightApp: App {

@@ -7,7 +7,7 @@
 
 import Foundation
 //import AMADocModeliOS
-import mdi_mob_sdk_doc_model_ios
+import AMADocModeliOS
 
 public class MockData {
     public static var passenger1: Passenger {

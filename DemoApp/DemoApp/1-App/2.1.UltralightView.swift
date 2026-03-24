@@ -7,7 +7,7 @@
 
 import SwiftUI
 import Combine
-import mdi_mob_sdk_doc_model_ios
+import AMADocModeliOS
 import AMAShareUltralight
 
 enum Event {

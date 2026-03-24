@@ -43,14 +43,19 @@
 		8EF03F7D23837508B3DECB13 /* 2.1.UltralightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE17C4BEFA4D43839C890724 /* 2.1.UltralightView.swift */; };
 		A8FD60305BC440A400F5B220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBD9E008AC32AD291D69928 /* Assets.xcassets */; };
 		CF393E8F51E9CEF9A5CE01D3 /* 2.2.PassengersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DA576CE3CD141999CF2F26 /* 2.2.PassengersView.swift */; };
+		F600D3312F729875000E4045 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F600D3302F729875000E4045 /* AMAShareUltralight */; };
 		F605B67B2F718D2B00F8A01C /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F605B67A2F718D2B00F8A01C /* AMAShareUltralight */; };
 		F62306192F715555008718F2 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F62306182F715555008718F2 /* AMAShareUltralight */; };
 		F65395882F7187F900539424 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F65395872F7187F900539424 /* AMAShareUltralight */; };
 		F69D2BE92F718D7300B0AB3B /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F69D2BE82F718D7300B0AB3B /* AMAShareUltralight */; };
 		F69D2BEF2F718E0900B0AB3B /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F69D2BEE2F718E0900B0AB3B /* AMAShareUltralight */; };
 		F69D2BF22F718E5B00B0AB3B /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F69D2BF12F718E5B00B0AB3B /* AMAShareUltralight */; };
+		F6A94D822F7299B1007AABE9 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6A94D812F7299B1007AABE9 /* AMAShareUltralight */; };
+		F6A94D852F7299F9007AABE9 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6A94D842F7299F9007AABE9 /* AMAShareUltralight */; };
 		F6BDB9042F7150CC00357430 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6BDB9032F7150CC00357430 /* AMAShareUltralight */; };
 		F6C665172F7184690059E1AD /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6C665162F7184690059E1AD /* AMAShareUltralight */; };
+		F6F02F9B2F72A0A400E7F701 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F02F9A2F72A0A400E7F701 /* AMAShareUltralight */; };
+		F6F02F9E2F72A56100E7F701 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F02F9D2F72A56100E7F701 /* AMAShareUltralight */; };
 		F6F079E42F6D715800D5394D /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F079E32F6D715800D5394D /* AMAShareUltralight */; };
 /* End PBXBuildFile section */
 
@@ -95,8 +100,13 @@
 				F69D2BF22F718E5B00B0AB3B /* AMAShareUltralight in Frameworks */,
 				F605B67B2F718D2B00F8A01C /* AMAShareUltralight in Frameworks */,
 				F6BDB9042F7150CC00357430 /* AMAShareUltralight in Frameworks */,
+				F6F02F9B2F72A0A400E7F701 /* AMAShareUltralight in Frameworks */,
+				F6F02F9E2F72A56100E7F701 /* AMAShareUltralight in Frameworks */,
 				F69D2BEF2F718E0900B0AB3B /* AMAShareUltralight in Frameworks */,
+				F600D3312F729875000E4045 /* AMAShareUltralight in Frameworks */,
 				F6F079E42F6D715800D5394D /* AMAShareUltralight in Frameworks */,
+				F6A94D852F7299F9007AABE9 /* AMAShareUltralight in Frameworks */,
+				F6A94D822F7299B1007AABE9 /* AMAShareUltralight in Frameworks */,
 				F62306192F715555008718F2 /* AMAShareUltralight in Frameworks */,
 				F69D2BE92F718D7300B0AB3B /* AMAShareUltralight in Frameworks */,
 			);
@@ -193,6 +203,11 @@
 				F69D2BE82F718D7300B0AB3B /* AMAShareUltralight */,
 				F69D2BEE2F718E0900B0AB3B /* AMAShareUltralight */,
 				F69D2BF12F718E5B00B0AB3B /* AMAShareUltralight */,
+				F600D3302F729875000E4045 /* AMAShareUltralight */,
+				F6A94D812F7299B1007AABE9 /* AMAShareUltralight */,
+				F6A94D842F7299F9007AABE9 /* AMAShareUltralight */,
+				F6F02F9A2F72A0A400E7F701 /* AMAShareUltralight */,
+				F6F02F9D2F72A56100E7F701 /* AMAShareUltralight */,
 			);
 			productName = DemoApp;
 			productReference = 154FAE636D5E23DF886F3868 /* UltraLightDemoApp.app */;
@@ -218,7 +233,7 @@
 			mainGroup = 440193E401A4E83EEA00B144;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F69D2BF02F718E5B00B0AB3B /* XCLocalSwiftPackageReference "../../AMAShareUltralight" */,
+				F6F02F9C2F72A56100E7F701 /* XCLocalSwiftPackageReference "../../AMAShareUltralight-dev" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -527,13 +542,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F69D2BF02F718E5B00B0AB3B /* XCLocalSwiftPackageReference "../../AMAShareUltralight" */ = {
+		F6F02F9C2F72A56100E7F701 /* XCLocalSwiftPackageReference "../../AMAShareUltralight-dev" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../../AMAShareUltralight;
+			relativePath = "../../AMAShareUltralight-dev";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F600D3302F729875000E4045 /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
 		F605B67A2F718D2B00F8A01C /* AMAShareUltralight */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AMAShareUltralight;
@@ -558,11 +577,27 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AMAShareUltralight;
 		};
+		F6A94D812F7299B1007AABE9 /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
+		F6A94D842F7299F9007AABE9 /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
 		F6BDB9032F7150CC00357430 /* AMAShareUltralight */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AMAShareUltralight;
 		};
 		F6C665162F7184690059E1AD /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
+		F6F02F9A2F72A0A400E7F701 /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
+		F6F02F9D2F72A56100E7F701 /* AMAShareUltralight */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AMAShareUltralight;
 		};
