@@ -54,6 +54,7 @@
 		F6A94D852F7299F9007AABE9 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6A94D842F7299F9007AABE9 /* AMAShareUltralight */; };
 		F6BDB9042F7150CC00357430 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6BDB9032F7150CC00357430 /* AMAShareUltralight */; };
 		F6C665172F7184690059E1AD /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6C665162F7184690059E1AD /* AMAShareUltralight */; };
+		F6E7C63D2F76A48300FB691C /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6E7C63C2F76A48300FB691C /* AMAShareUltralight */; };
 		F6F02F9B2F72A0A400E7F701 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F02F9A2F72A0A400E7F701 /* AMAShareUltralight */; };
 		F6F02F9E2F72A56100E7F701 /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F02F9D2F72A56100E7F701 /* AMAShareUltralight */; };
 		F6F079E42F6D715800D5394D /* AMAShareUltralight in Frameworks */ = {isa = PBXBuildFile; productRef = F6F079E32F6D715800D5394D /* AMAShareUltralight */; };
@@ -106,6 +107,7 @@
 				F600D3312F729875000E4045 /* AMAShareUltralight in Frameworks */,
 				F6F079E42F6D715800D5394D /* AMAShareUltralight in Frameworks */,
 				F6A94D852F7299F9007AABE9 /* AMAShareUltralight in Frameworks */,
+				F6E7C63D2F76A48300FB691C /* AMAShareUltralight in Frameworks */,
 				F6A94D822F7299B1007AABE9 /* AMAShareUltralight in Frameworks */,
 				F62306192F715555008718F2 /* AMAShareUltralight in Frameworks */,
 				F69D2BE92F718D7300B0AB3B /* AMAShareUltralight in Frameworks */,
@@ -208,6 +210,7 @@
 				F6A94D842F7299F9007AABE9 /* AMAShareUltralight */,
 				F6F02F9A2F72A0A400E7F701 /* AMAShareUltralight */,
 				F6F02F9D2F72A56100E7F701 /* AMAShareUltralight */,
+				F6E7C63C2F76A48300FB691C /* AMAShareUltralight */,
 			);
 			productName = DemoApp;
 			productReference = 154FAE636D5E23DF886F3868 /* UltraLightDemoApp.app */;
@@ -233,7 +236,7 @@
 			mainGroup = 440193E401A4E83EEA00B144;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				F6F02F9C2F72A56100E7F701 /* XCLocalSwiftPackageReference "../../AMAShareUltralight-dev" */,
+				F6E7C63B2F76A48300FB691C /* XCLocalSwiftPackageReference "../../AMAShareUltralight" */,
 			);
 			projectDirPath = "";
 			projectRoot = "";
@@ -542,9 +545,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		F6F02F9C2F72A56100E7F701 /* XCLocalSwiftPackageReference "../../AMAShareUltralight-dev" */ = {
+		F6E7C63B2F76A48300FB691C /* XCLocalSwiftPackageReference "../../AMAShareUltralight" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../AMAShareUltralight-dev";
+			relativePath = ../../AMAShareUltralight;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -590,6 +593,10 @@
 			productName = AMAShareUltralight;
 		};
 		F6C665162F7184690059E1AD /* AMAShareUltralight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AMAShareUltralight;
+		};
+		F6E7C63C2F76A48300FB691C /* AMAShareUltralight */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AMAShareUltralight;
 		};

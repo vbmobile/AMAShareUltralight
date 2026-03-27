@@ -31,11 +31,15 @@ let package = Package(
         .package(url: ultralight.url, exact: .init(stringLiteral: ultralight.version))
     ],
     targets: [
+        //.binaryTarget(
+        //    name: "AMAShareUltralight",
+        //    path: "Frameworks/AMAShareUltralight.xcframework"
+        //),
         .binaryTarget(
             name: "AMAShareUltralight",
-            path: "Frameworks/AMAShareUltralight.xcframework"
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0-rc02.zip",
+            checksum: "81bd11511e5fdd822f7c3d72da8c0a213b1eaedb4c960262e3b67735f526cb78"
         ),
-        // ✅ Swift wrapper target that pulls remote deps + exposes the binary
         .target(
             name: "AMAShareUltralightBinary",
             dependencies: [
