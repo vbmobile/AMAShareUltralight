@@ -1,20 +1,6 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
-let models = (
-    package: "AMADocModeliOS",
-    product: "AMADocModeliOS",
-    url: "https://github.com/vbmobile/AMADocModeliOS",
-    version: "1.0.0-rc03"
-)
-
-let ultralight = (
-    package: "ultralight-native-sdk",
-    product: "UltralightFramework",
-    url: "https://github.com/vbmobile/ultralight-native-sdk",
-    version: "2.6.141"
-)
-
 let package = Package(
     name: "AMAShareUltralight",
     platforms: [
@@ -27,14 +13,10 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: models.url, exact: .init(stringLiteral: models.version)),
-        .package(url: ultralight.url, exact: .init(stringLiteral: ultralight.version))
+        .package(url: "https://github.com/vbmobile/AMADocModeliOS", exact: "1.0.0-rc10"),
+        .package(url: "https://github.com/vbmobile/ultralight-native-sdk", exact: "2.6.141")
     ],
     targets: [
-        //.binaryTarget(
-        //    name: "AMAShareUltralight",
-        //    path: "Frameworks/AMAShareUltralight.xcframework"
-        //),
         .binaryTarget(
             name: "AMAShareUltralight",
             url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0-rc02.zip",
@@ -44,8 +26,8 @@ let package = Package(
             name: "AMAShareUltralightBinary",
             dependencies: [
                 "AMAShareUltralight",
-                .product(name: models.product, package: models.package),
-                .product(name: ultralight.product, package: ultralight.package)
+                .product(name: "AMADocModeliOS", package: "AMADocModeliOS"),
+                .product(name: "UltralightFramework", package: "ultralight-native-sdk")
             ],
             path: "Sources/AMAShareUltralight"
         )
