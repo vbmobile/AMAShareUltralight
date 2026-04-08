@@ -13,8 +13,10 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/vbmobile/AMADocModeliOS", exact: "1.0.0-rc16"),
-        .package(url: "https://github.com/vbmobile/ultralight-native-sdk", exact: "2.6.141")
+        .package(url: "https://github.com/vbmobile/AMADocModeliOS",
+                 exact: "1.0.0-rc16"),
+        .package(url: "https://github.com/vbmobile/ultralight-native-sdk",
+                 exact: "2.6.141")
     ],
     targets: [
         .binaryTarget(

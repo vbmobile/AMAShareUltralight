@@ -1,13 +1,13 @@
 {
-  "originHash" : "0df4e12bb6f24d8b2b1243b09c280399bd87c3289745d9b6a668592b37d78463",
+  "originHash" : "102cca27e7efc59fc9b32c36f049f31d408d258fd31f5daee1cdcbc511d53fbf",
   "pins" : [
     {
       "identity" : "amadocmodelios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/vbmobile/AMADocModeliOS",
       "state" : {
-        "revision" : "5b0f6671d183d024f877358746fb718e082976ef",
-        "version" : "1.0.0-rc10"
+        "revision" : "2b88bca3b26d6eb46159c6663193c17cf86d2b53",
+        "version" : "1.0.0-rc16"
       }
     },
     {
