@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vbmobile/AMADocModeliOS",
-                 exact: "1.0.0-rc23"),
+                 exact: "1.0.0-rc24"),
         .package(url: "https://github.com/vbmobile/ultralight-native-sdk",
                  exact: "2.6.141")
     ],
