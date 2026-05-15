@@ -14,15 +14,15 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vbmobile/AMADocModeliOS",
-                 exact: "1.0.0-rc24"),
+                 .upToNextMinor(from: "1.0.0")),
         .package(url: "https://github.com/vbmobile/ultralight-native-sdk",
                  exact: "2.6.141")
     ],
     targets: [
         .binaryTarget(
             name: "AMAShareUltralight",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0-rc23.zip",
-            checksum: "e9b5f0613be6325398173e333ae25e65a8b7c4bd0f96abb66d8dee82925daf46"
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-1.0.0.zip",
+            checksum: "a05ec9c7aa3f106c5bcda69208434fb3dfe5fc3c972976464724f828980710e8"
         ),
         .target(
             name: "AMAShareUltralightBinary",
