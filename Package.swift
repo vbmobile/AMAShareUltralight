@@ -21,8 +21,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "AMAShareUltralight",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.2.zip",
-            checksum: "a771ed4cd725611497297303a6d745a32bf3962b44070d2f8da638bef1a501bb"
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.3.zip",
+            checksum: "3163bb501ba26bd4c72f147c96c5e40ded6d4a0a7d7719ce972f51a812f717dd"
         ),
         .target(
             name: "AMAShareUltralightBinary",
