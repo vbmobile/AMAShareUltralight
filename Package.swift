@@ -16,7 +16,7 @@ let package = Package(
         .package(url: "https://github.com/vbmobile/AMADocModeliOS",
                  .upToNextMinor(from: "2.0.0")),
         .package(url: "https://github.com/vbmobile/ultralight-native-sdk",
-                 exact: "2.6.141")
+                 exact: "2.6.181")
     ],
     targets: [
         .binaryTarget(
