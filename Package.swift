@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/vbmobile/AMADocModel",
-                 .upToNextMinor(from: "3.0.0")),
+                 .upToNextMinor(from: "3.0.1")),
         .package(url: "https://github.com/vbmobile/ultralight-native-sdk",
                  exact: "2.6.181")
     ],
