@@ -9,7 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "AMAShareUltralight",
-            targets: ["AMAShareUltralightBinary"]
+            targets: ["AMAShareUltralight"]
         )
     ],
     dependencies: [
@@ -20,14 +20,14 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(
-            name: "AMAShareUltralight",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.9.zip",
-            checksum: "0fe1657ba5c8bc39677be679d48e199fd6bc92974354a12aa898baa9707d758f"
+            name: "AMAShareUltralightBinary",
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.10.zip",
+            checksum: "abf202ae0c8770eb4fbaf8a4f2d2bbb4affca53fe46644bc0afb34379de6b85a"
         ),
         .target(
-            name: "AMAShareUltralightBinary",
+            name: "AMAShareUltralight",
             dependencies: [
-                "AMAShareUltralight",
+                "AMAShareUltralightBinary",
                 .product(name: "AMADocModeliOS", package: "AMADocModeliOS"),
                 .product(name: "UltralightFramework", package: "ultralight-native-sdk")
             ],
