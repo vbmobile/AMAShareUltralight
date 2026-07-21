@@ -9,6 +9,7 @@ let package = Package(
     products: [
         .library(
             name: "AMAShareUltralight",
+            type: .dynamic,
             targets: ["AMAShareUltralight"]
         )
     ],
@@ -21,7 +22,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "AMAShareUltralightBinary",
-            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.10.zip",
+            url: "https://vbmobileidstorage.blob.core.windows.net/ios/AMAShareUltralight/AMAShareUltralight-2.0.11.zip",
             checksum: "abf202ae0c8770eb4fbaf8a4f2d2bbb4affca53fe46644bc0afb34379de6b85a"
         ),
         .target(
