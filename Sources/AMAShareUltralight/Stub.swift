@@ -9,5 +9,4 @@
 //
 
 import Foundation
-@_exported import AMAShareUltralightBinary
 
