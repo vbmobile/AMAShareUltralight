@@ -1,3 +1,4 @@
 *.zip
 .swiftpm
 Package.resolved
+.build/
