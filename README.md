@@ -8,9 +8,9 @@
 
 [https://github.com/vbmobile/ultralight-native-sdk](https://github.com/vbmobile/ultralight-native-sdk)
 
-### AMADocModeliOS
+### AMADocModel
 
-[https://github.com/vbmobile/AMADocModeliOS](https://github.com/vbmobile/AMADocModeliOS)
+[https://github.com/vbmobile/AMADocModel](https://github.com/vbmobile/AMADocModel)
 
 
 
